@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player")]
     [SerializeField] float speedMultiplier = 0.35f;
     [SerializeField] float padding = 1f;
+    [SerializeField] int hitPoints = 200;
+
+    [Header("Projectile")]
     [SerializeField] float laserSpeed = 15f;
-    [SerializeField] float projectileFiringInterval = 3f;
+    [SerializeField] float projectileFiringInterval = 2f;
     [SerializeField] GameObject laser;
 
     private Vector2 minVector;
@@ -61,15 +65,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    int i = 0;
     private IEnumerator FireContinuously() {
-        Debug.Log("START " + ++i);
         while (true) {
             var laserInstance = Instantiate(laser, transform.position, Quaternion.identity);
             laserInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
-            Destroy(laserInstance, 2f);
             yield return new WaitForSeconds(projectileFiringInterval);
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        ProcessHit(collider);
+    }
+    private void ProcessHit(Collider2D collider)
+    {
+        DamageDealer dd = collider.GetComponent<DamageDealer>();
+        if (dd is object)
+        {
+            hitPoints -= dd.GetDamage();
+        }
+        if (hitPoints <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

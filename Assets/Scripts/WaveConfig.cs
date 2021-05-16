@@ -20,8 +20,6 @@ public class WaveConfig : ScriptableObject
             wp.Add(t);
         }
         return wp;
-        // var waypoints = pathPrefab.GetComponentsInChildren<Transform>();
-        // return new List<Transform>(waypoints);
     }
     public float SpawnInterval { get => spawnInterval; }
     public float SpawnRandomMultiplier { get => Random.Range(-spawnRandomness, spawnRandomness); }

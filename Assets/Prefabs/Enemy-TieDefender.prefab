@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 714207357680747345}
   - component: {fileID: 714207357680747346}
   - component: {fileID: 3265399305300915371}
-  m_Layer: 0
+  - component: {fileID: 4792253324372853026}
+  - component: {fileID: -5748554023517157211}
+  m_Layer: 6
   m_Name: Enemy-TieDefender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,3 +97,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3d17a685e514b42bfb311017085516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4792253324372853026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714207357680747347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d180606537d00a40acd87d4120acf51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLaser: {fileID: 1426861992993778755, guid: 17598999e3b59214f88bd8e16c264ce4, type: 3}
+  laserSpeed: 5
+  health: 123
+  shotCounter: 0
+  minShotsInterval: 0.2
+  maxShotsInterval: 3
+--- !u!60 &-5748554023517157211
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714207357680747347}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.37, y: 0.16}
+      - {x: 0.35, y: 0.29999998}
+      - {x: 0.29, y: 0.29999998}
+      - {x: 0.049999997, y: 0.14}
+      - {x: 0.02, y: 0.11}
+      - {x: 0, y: 0.08}
+      - {x: -0.049999997, y: 0.14999999}
+      - {x: -0.14, y: 0.16}
+      - {x: -0.21, y: 0.22}
+      - {x: -0.31, y: 0.29999998}
+      - {x: -0.35, y: 0.29999998}
+      - {x: -0.38, y: 0.29}
+      - {x: -0.39, y: 0.14}
+      - {x: -0.39, y: -0.24}
+      - {x: -0.38, y: -0.31}
+      - {x: -0.37, y: -0.32}
+      - {x: -0.28, y: -0.32}
+      - {x: 0.049999997, y: -0.21}
+      - {x: 0.26999998, y: -0.32}
+      - {x: 0.32999998, y: -0.32}
+      - {x: 0.35999998, y: -0.31}
+      - {x: 0.37, y: -0.26999998}
