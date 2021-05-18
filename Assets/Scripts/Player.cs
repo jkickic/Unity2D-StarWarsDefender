@@ -91,5 +91,6 @@ public class Player : MonoBehaviour {
     private void Die() {
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathVolume);
         Destroy(gameObject);
+        FindObjectOfType<SceneLoader>().LoadGameOver();
     }
 }
