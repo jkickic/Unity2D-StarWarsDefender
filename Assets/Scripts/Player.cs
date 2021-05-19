@@ -8,15 +8,18 @@ public class Player : MonoBehaviour {
     [SerializeField] float padding = 1f;
     [SerializeField] int hitPoints = 200;
 
-    [Header("Projectile")] 
-    [SerializeField] float laserSpeed = 15f;
+    [Header("Projectile")] [SerializeField]
+    float laserSpeed = 15f;
+
     [SerializeField] float projectileFiringInterval = 1f;
     [SerializeField] GameObject laser;
 
     [Header("Sound")] [SerializeField] AudioClip deathSound;
-    [SerializeField] [Range(0,1)] private float deathVolume = 1f;
+    [SerializeField] [Range(0, 1)] private float deathVolume = 1f;
     [SerializeField] AudioClip shootSound;
-    [SerializeField] [Range(0,1)] private float shootVolume = 1f;
+    [SerializeField] [Range(0, 1)] private float shootVolume = 1f;
+    [SerializeField] AudioClip playerHitSound;
+    [SerializeField] [Range(0, 1)] private float playerHitVolume = 1f;
 
     private Vector2 minVector;
     private Vector2 maxVector;
@@ -29,14 +32,16 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        MovePlayer();
-        ShootLasers();
+        if (hitPoints > 0) {
+            MovePlayer();
+            ShootLasers();
+        }
     }
 
 
     private void SetupMoveBoundries() {
         var cam = Camera.main;
-        maxVector = cam.ViewportToWorldPoint(new Vector3(1, 1, 0));
+        maxVector = cam.ViewportToWorldPoint(new Vector3(1, 0.6f, 0));
         minVector = cam.ViewportToWorldPoint(new Vector3(0, 0, 0));
     }
 
@@ -81,6 +86,7 @@ public class Player : MonoBehaviour {
         DamageDealer dd = collider.GetComponent<DamageDealer>();
         if (dd is object) {
             hitPoints -= dd.GetDamage();
+            AudioSource.PlayClipAtPoint(playerHitSound, Camera.main.transform.position, deathVolume);
         }
 
         if (hitPoints <= 0) {

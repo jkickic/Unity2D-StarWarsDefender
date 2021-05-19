@@ -106,6 +106,8 @@ MonoBehaviour:
   deathVolume: 1
   shootSound: {fileID: 8300000, guid: 442b05e05e5a8f8488b67b17e25cd075, type: 3}
   shootVolume: 0.4
+  playerHitSound: {fileID: 8300000, guid: bd756cbd4b448a248ab83bc46e08ecec, type: 3}
+  playerHitVolume: 1
 --- !u!60 &1329071963029032996
 PolygonCollider2D:
   m_ObjectHideFlags: 0

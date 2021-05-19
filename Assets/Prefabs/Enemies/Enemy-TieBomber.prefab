@@ -11,11 +11,13 @@ GameObject:
   - component: {fileID: 714207357680747345}
   - component: {fileID: 714207357680747346}
   - component: {fileID: 3265399305300915371}
-  - component: {fileID: 4792253324372853026}
-  - component: {fileID: -5748554023517157211}
-  - component: {fileID: 734687270194365155}
+  - component: {fileID: 2580162215284744861}
+  - component: {fileID: 1090116656978179329}
+  - component: {fileID: 2626642080495624336}
+  - component: {fileID: 6300735390946875573}
+  - component: {fileID: 4244704118456860351}
   m_Layer: 6
-  m_Name: Enemy-TieDefender
+  m_Name: Enemy-TieBomber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9f85abbd278fb894b886738e42b7a3d2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1831ed2499a31e747bd7b3413799266d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3d17a685e514b42bfb311017085516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4792253324372853026
+--- !u!114 &2580162215284744861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,11 +119,11 @@ MonoBehaviour:
   enemyLaser: {fileID: 1426861992993778755, guid: 17598999e3b59214f88bd8e16c264ce4, type: 3}
   explosion: {fileID: 3969391201409092983, guid: aa42b269121874e498cfeeb2a9877aad, type: 3}
   laserSpeed: 5
-  health: 123
+  health: 151
   shotCounter: 0
-  minShotsInterval: 0.2
-  maxShotsInterval: 3
---- !u!60 &-5748554023517157211
+  minShotsInterval: 3
+  maxShotsInterval: 5
+--- !u!60 &1090116656978179329
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,29 +148,22 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.37, y: 0.16}
-      - {x: 0.35, y: 0.29999998}
-      - {x: 0.29, y: 0.29999998}
-      - {x: 0.049999997, y: 0.14}
-      - {x: 0.02, y: 0.11}
-      - {x: 0, y: 0.08}
-      - {x: -0.049999997, y: 0.14999999}
-      - {x: -0.14, y: 0.16}
-      - {x: -0.21, y: 0.22}
-      - {x: -0.31, y: 0.29999998}
-      - {x: -0.35, y: 0.29999998}
-      - {x: -0.38, y: 0.29}
-      - {x: -0.39, y: 0.14}
-      - {x: -0.39, y: -0.24}
-      - {x: -0.38, y: -0.31}
-      - {x: -0.37, y: -0.32}
-      - {x: -0.28, y: -0.32}
-      - {x: 0.049999997, y: -0.21}
-      - {x: 0.26999998, y: -0.32}
-      - {x: 0.32999998, y: -0.32}
-      - {x: 0.35999998, y: -0.31}
-      - {x: 0.37, y: -0.26999998}
---- !u!82 &734687270194365155
+    - - {x: 0.42999998, y: -0.37}
+      - {x: 0.45, y: -0.089999996}
+      - {x: 0.45, y: 0.26}
+      - {x: 0.44, y: 0.32999998}
+      - {x: 0.42, y: 0.34}
+      - {x: 0.35999998, y: 0.34}
+      - {x: 0.17999999, y: 0.22999999}
+      - {x: -0.049999997, y: 0.29}
+      - {x: -0.31, y: 0.34}
+      - {x: -0.42999998, y: 0.34}
+      - {x: -0.42999998, y: -0.39}
+      - {x: -0.31, y: -0.39}
+      - {x: -0.21, y: -0.35}
+      - {x: 0.02, y: -0.39}
+      - {x: 0.42999998, y: -0.39}
+--- !u!82 &2626642080495624336
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,3 +259,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6300735390946875573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714207357680747347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff50c999ad08ec43845ff012f628649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 500
+--- !u!50 &4244704118456860351
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714207357680747347}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
