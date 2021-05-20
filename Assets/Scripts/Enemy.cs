@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour {
     [Header("SFX")] [SerializeField] AudioClip deathSound;
@@ -17,12 +19,14 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private float maxShotsInterval = 3f;
 
 
+    private int score = 0;
     private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start() {
         shotCounter = Random.Range(minShotsInterval, maxShotsInterval);
         audioSource = GetComponent<AudioSource>();
+        score = (int) health;
     }
 
     // Update is called once per frame
@@ -55,7 +59,7 @@ public class Enemy : MonoBehaviour {
         }
 
         if (health <= 0) {
-            Die();
+           Die();
         }
     }
 
@@ -63,6 +67,7 @@ public class Enemy : MonoBehaviour {
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathVolume);
         var explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(explosionInstance, 1);
+        FindObjectOfType<GameState>().IncrementScore(score);
         Destroy(gameObject);
     }
 }

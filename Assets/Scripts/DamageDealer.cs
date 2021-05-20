@@ -14,6 +14,9 @@ public class DamageDealer : MonoBehaviour {
     }
 
     public void Hit(Collider2D collision) {
+        if (GetComponent<Enemy>() != null) {
+            return;
+        }
         Destroy(gameObject);
     }
 }

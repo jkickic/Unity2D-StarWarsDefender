@@ -24,10 +24,13 @@ public class Player : MonoBehaviour {
     private Vector2 minVector;
     private Vector2 maxVector;
     private Coroutine fireCourutine;
+    private GameState gameState;
 
     // Start is called before the first frame update
     void Start() {
         SetupMoveBoundries();
+        gameState = FindObjectOfType<GameState>();
+        gameState.SetHealthText(hitPoints);
     }
 
     // Update is called once per frame
@@ -86,7 +89,8 @@ public class Player : MonoBehaviour {
         DamageDealer dd = collider.GetComponent<DamageDealer>();
         if (dd is object) {
             hitPoints -= dd.GetDamage();
-            AudioSource.PlayClipAtPoint(playerHitSound, Camera.main.transform.position, deathVolume);
+            gameState.SetHealthText(hitPoints);
+            AudioSource.PlayClipAtPoint(playerHitSound, Camera.main.transform.position, playerHitVolume);
         }
 
         if (hitPoints <= 0) {
