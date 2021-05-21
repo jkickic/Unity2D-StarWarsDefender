@@ -26,7 +26,7 @@ public class GameState : MonoBehaviour {
         score += val;
     }
     public void ResetScore() {
-        dwscore = 0;
+        score = 0;
     }
 
     public int GetScore() {

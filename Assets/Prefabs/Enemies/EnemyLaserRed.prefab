@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6896202728928044311}
   - component: {fileID: 6825676626566928218}
   - component: {fileID: 7466791667579282304}
-  - component: {fileID: 4584455317407606437}
   - component: {fileID: 887179719403472247}
-  - component: {fileID: -3065945782469883825}
+  - component: {fileID: 3997394300599321902}
+  - component: {fileID: -8601648311108112388}
   m_Layer: 8
   m_Name: EnemyLaserRed
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1426861992993778755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 62a04f7f6edb7d4459f6079df4c5e0dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 80c4f59e96d100d4c935aef6eea65fed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -107,22 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &4584455317407606437
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426861992993778755}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.09, y: 0.54}
-  m_Direction: 0
 --- !u!114 &887179719403472247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,20 +119,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff50c999ad08ec43845ff012f628649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 86
---- !u!70 &-3065945782469883825
-CapsuleCollider2D:
+  damage: 105
+--- !u!58 &3997394300599321902
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426861992993778755}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.18, y: 1.08}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 0.16
+--- !u!114 &-8601648311108112388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426861992993778755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30745f8cf4410864f8a369fe2f1e8ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 360
+  randomizer: 180
+  realSpeed: 0
