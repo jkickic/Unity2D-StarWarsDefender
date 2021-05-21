@@ -4,23 +4,32 @@ using UnityEngine;
 using TMPro;
 
 public class GameState : MonoBehaviour {
+    [SerializeField] private int score = 0;
 
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TextMeshProUGUI healthText;
-    private int score = 0;
+    void Awake() {
+        SetupSingleton();
+    }
 
-    void Start() {
-        scoreText.text = score.ToString();
+    private void SetupSingleton() {
+        int goCount = FindObjectsOfType(GetType()).Length;
+        if (goCount > 1) {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     // Update is called once per frame
     public void IncrementScore(int val) {
         score += val;
-        scoreText.text = score.ToString();
+    }
+    public void ResetScore() {
+        dwscore = 0;
     }
 
-    public void SetHealthText(int health) {
-        healthText.text = Mathf.Max(health, 0).ToString();
+    public int GetScore() {
+        return score;
     }
-
 }
